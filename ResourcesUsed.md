@@ -8,11 +8,15 @@ Creating and initializing variables like guessTheWord, guessWord, and attempts.
 Writing the for loop to check guessed letters and updating the placeholder (guessWord) with setCharAt.
 Implementing conditions to determine correct or incorrect guesses.
 Printing feedback for correct guesses, incorrect guesses, and attempts left.
+
+
 Core Logic and Planning:
 The overall game structure, rules, and logic were entirely your ideas:
 Using a while loop to manage multiple guesses until the game ends.
 Using a for loop to iterate through the word for letter matching.
 Decrementing attempts for incorrect guesses and tracking progress dynamically.
+
+
 Problem-Solving:
 You thought through the requirements step by step:
 Handling invalid input.
