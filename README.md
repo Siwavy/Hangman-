@@ -61,6 +61,7 @@ Guess a letter: z
 Your guess: z
 
 SORRY YOU ARE WRONG :(
+
 Your word: ___a__a_
 
 Attempts left: 5
