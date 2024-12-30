@@ -46,17 +46,26 @@ Example Game
 
 Welcome to Hangman!
 Your word: ________
+
 Guess a letter: a
+
 Your guess: a
+
 GREAT YOU ARE CORRECT;)
+
 Your word: ___a__a_
 Attempts left: 6
 
 Guess a letter: z
+
 Your guess: z
+
 SORRY YOU ARE WRONG :(
 Your word: ___a__a_
+
 Attempts left: 5
+
+
 Future Ideas
 
 Add a feature to randomly select a word from a list so the game is different every time.
