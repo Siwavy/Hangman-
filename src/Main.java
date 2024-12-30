@@ -4,50 +4,69 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //this is where the game will start
+        // This is where the game starts
         System.out.println("Welcome to Hangman!");
 
-        // This is where I defined the word to guess
+        // The word to guess
         String guessTheWord = "delaware";
 
-        //Now I need a placeholder for my word using underscores with StringBuilder
+        // Placeholder for the word using underscores
         StringBuilder guessWord = new StringBuilder("________");
 
         // Display the placeholder for the word
         System.out.println("Your word: " + guessWord);
 
-        // Create a Scanner object to read user input
+        // I Created a Scanner object to read user input
         Scanner scanner = new Scanner(System.in);
 
-        // This tells the user to guess a letter
-        System.out.print("Guess a letter: ");
-        String userInput = scanner.nextLine(); // Read the input of the user
+        // This Keep track of how many attempts the player has left
+        int attempts = 6;
 
-        // Print the guessed letter to verify the input. this will be for testing
-        System.out.println("Your guess: " + userInput);
+        // Keep the game running until the word is guessed or the attempts run out
+        while (!guessWord.toString().equals(guessTheWord) && attempts > 0) {
+            // Ask the user to guess a letter
+            System.out.print("Guess a letter: ");
+            String userInput = scanner.nextLine();
 
-        // Flag to check if the guess is correct
-        boolean isCorrect = false;
-
-        // Go through each letter in the word
-        for (int i = 0; i < guessTheWord.length(); i++) {
-            // If the guessed letter matches this letter in the word
-            if (guessTheWord.charAt(i) == userInput.charAt(0)) {
-                // Update the placeholder to show the correct letter
-                guessWord.setCharAt(i, guessTheWord.charAt(i));
-                // Set the flag to show the guess was correct
-                isCorrect = true;
+            // Check if the input is valid (one letter only)
+            if (userInput.length() != 1 || !Character.isLetter(userInput.charAt(0))) {
+                System.out.println("Invalid input. Please enter one letter.");
+                continue; // Skip to the next guess
             }
+
+            // Print the guessed letter for testing
+            System.out.println("Your guess: " + userInput);
+
+            //to check if the guess is correct
+            boolean isCorrect = false;
+
+            // Check the word for the guessed letter
+            for (int i = 0; i < guessTheWord.length(); i++) {
+                if (guessTheWord.charAt(i) == userInput.charAt(0)) {
+                    // Update the placeholder
+                    guessWord.setCharAt(i, guessTheWord.charAt(i));
+                    isCorrect = true;
+                }
+            }
+
+            // Gives feedback based on whether the guess was correct
+            if (isCorrect) {
+                System.out.println("GREAT YOU ARE CORRECT;)");
+            } else {
+                System.out.println("SORRY YOU ARE WRONG :(");
+                attempts--; // Reduce the number of attempts after each guess
+            }
+
+            // Shows the updated word and attempts left
+            System.out.println("Your word: " + guessWord);
+            System.out.println("Attempts left: " + attempts);
         }
 
-        //these are the conditions for correct and incorrect guesses
-        if (isCorrect) {
-            System.out.println("GREAT YOU ARE CORRECT;)");
+        // Checks if the user has won or lost
+        if (guessWord.toString().equals(guessTheWord)) {
+            System.out.println("CONGRATULATIONS! YOU GUESSED THE WORD!");
         } else {
-            System.out.println("SORRY YOU ARE WRONG :(");
+            System.out.println("GAME OVER! The word was: " + guessTheWord);
         }
-
-        //This will Display the updated placeholders/underscores after each guess
-        System.out.println("Your word: " + guessWord);
     }
 }
