@@ -10,12 +10,12 @@ import java.util.ArrayList; // Import ArrayList to manage lists of words
 public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Hangman!\n"); // Display a welcome message to the user
-        System.out.println("Looking for file at: " + "words.txt"); // Inform the user where the program is looking for the word list
+        System.out.println("Looking for file at: " + "wordsList.txt"); // Inform the user where the program is looking for the word list
 
         // Load words from the file
-        List<String> words = loadWordsFromFile("words.txt"); // Call the method to read words from the file
+        List<String> words = loadWordsFromFile("wordsList.txt"); // Call the method to read words from the file
         if (words.isEmpty()) { // Check if the word list is empty
-            System.out.println("No words available to play. Please check the words.txt file."); // Let the user know if no words were found
+            System.out.println("No words available to play. Please check the wordsList.txt file."); // Let the user know if no words were found
             return; // Exit the program if no words are available
         }
 
